@@ -93,6 +93,44 @@ using namespace std;
 //     return maxSum; 
 // }
 
+// void maximumTriplet(){
+//     int ar[]={1,2,3};
+//     int maxSum=0;
+//     int s=sizeof(ar)/sizeof(ar[0]);
+//     // for(int i=0;i<s-2;i++){
+//     //     for(int j=i+1;j<s-1;j++){
+//     //         int ans=0;
+//     //         for(int k=j+1;k<s;k++){
+//     //             if(ar[i]<ar[j] and ar[j] < ar[k]){
+//     //             ans=ar[i]+ar[j]+ar[k];
+//     //             maxSum=max(maxSum,ans); 
+//     //             }
+//     //         }
+//     //     }
+//     // }
+//     // cout<<maxSum<<endl;
+
+//     ///efficient approach
+//     for(int i=1;i<s-1;i++){
+//         int max1=0,max2=0;
+//             ///find the value less than ar[i]
+//         for(int j=0; j<i;j++){
+//             if(ar[j] < ar[i]){
+//                 max1=max(max1,ar[j]);
+//             }
+//         }
+//         for(int j=i+1;j<s;j++){
+//             if(ar[j] > ar[i]){
+//                 max2=max(max2,ar[j]);
+//             }
+//         }
+//         if(max1 && max2){
+//             maxSum=max(maxSum,max1+ar[i]+max2);
+//         }
+//     }
+//     cout<<maxSum;
+// }
+
 //                 /////Arrangenment
 // void  rotateMatrix(int arr[2][2],int n,int m){
 //     ////taking transpose
@@ -169,6 +207,102 @@ using namespace std;
 //     return steps;
 //     }
 
+        ///////simulation array//////
+// int peekOfArr(){
+//        // int arr[]={5,1,4,3,6,8,10,7,9};
+//         int arr[]={5,1,4,4};
+//         int s=sizeof(arr)/sizeof(arr[0]);
+//         int i=1;
+//         int left=arr[0];
+        
+//         if(s<3)
+//             return 0;
+
+//         while(i <s-1){
+
+//             if(arr[i] > left)
+//             {
+//                 left=arr[i];
+
+//                 int j=i+1;
+
+//                 while(j<s)
+//                 {
+//                     if(arr[j] < left){
+//                         i=j;
+//                         break;
+//                     }
+//                     j++;
+//                 }
+//                 if(j==s)
+//                     return 1;
+//             }
+//             i++;
+//         }
+//          return 0;  
+        
+
+
+
+   
+//                     ////another approach//////////// 
+//     // int leftMax[s];
+//     // int rightMin[s];
+//     // leftMax[0]=arr[0];
+//     // for(int i=1;i<s;i++){
+
+//     //     leftMax[i]=max(leftMax[i-1],arr[i]);
+//     // }
+
+//     // rightMin[s-1]=arr[s-1];
+//     // for(int i=s-2;i>=0;i--){
+//     //     rightMin[i]=min(rightMin[i+1],arr[i]);
+//     // }
+
+//     // for(int i=1;i<s-2;i++){
+//     //     if(leftMax[i-1]<arr[i] && arr[i] < rightMin[i+1]);
+//     //      return 1;
+//     // }
+//     // return 0;
+    
+// }
+
+//////pascal trangle
+//  int fact(int n){
+//     int factorial=1;
+//         for(int i=2;i<=n;i++){
+//         factorial=factorial*i;
+//         }
+//         return factorial;
+//     }
+ void pascalTrangle(){
+//     int n=5;
+//     for(int i=0;i<n;i++){
+//         for(int j=0;j<=i;j++){
+//             cout<<fact(i)/(fact(j)*fact(i-j))<<" ";
+//         }
+//         cout<<endl;
+//     } 
+    // int temp[5][5];
+
+    // for(int line=0;line<5;line++){
+
+    //     for(int i=0;i<=line;i++){
+    //         if(i==0 or line==i){
+    //             temp[line][i]=1;
+    //         }
+    //         else
+    //         {
+    //            temp[line][i]=temp[line-1][i-1]+temp[line-1][i]; 
+    //         }
+    //         cout<<temp[line][i]<<" ";           
+    //     }
+    //     cout<<endl;
+    // }
+
+    
+ }
+    
 
 int main(){
     // cout<<"Resolution of 2021"<<endl;
@@ -184,14 +318,16 @@ int main(){
     // int s=sizeof(arr)/sizeof(arr[0]);
     // repeatAndmiss(arr,s);
     //dupInArr(arr,s);
-    int total=0;
-    int a1[]={4,1,4,10};
-    int a2[]={6,2,5,12};
-    for(int i=1;i<4;i++){
-        int temp=max(abs(a1[i]-a1[i-1]),abs(a2[i]-a2[i-1]));
-        total+=temp;
-    }
-    cout<<total;
-    
+    // int total=0;
+    // int a1[]={4,1,4,10};
+    // int a2[]={6,2,5,12};
+    // for(int i=1;i<4;i++){
+    //     int temp=max(abs(a1[i]-a1[i-1]),abs(a2[i]-a2[i-1]));
+    //     total+=temp;
+    // }
+    // cout<<total;
+    //maximumTriplet();
+    //cout<<peekOfArr();
+    pascalTrangle();
     return 0;
 }
